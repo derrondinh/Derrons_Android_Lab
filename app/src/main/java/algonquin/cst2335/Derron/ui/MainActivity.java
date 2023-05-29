@@ -9,8 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import algonquin.cst2335.Derron.data.MainViewModel;
 import algonquin.cst2335.Derron.databinding.ActivityMainBinding;
@@ -27,45 +29,50 @@ public class MainActivity extends AppCompatActivity {
 
         variableBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(variableBinding.getRoot());
+
         TextView mytext = variableBinding.mytextview;
         Button mybutton = variableBinding.mybutton;
         EditText myedit = variableBinding.myedittext;
         CheckBox mycheckbox = variableBinding.mycheckbox;
         Switch myswitch = variableBinding.myswitch;
+        RadioButton myradiobutton = variableBinding.myradiobutton;
 
-        mytext.setText(model.text);
+       /* mytext.setText(model.text);
         mybutton.setText(model.button);
-        myedit.setText(model.edit);
-        mycheckbox.setOnCheckedChangeListener( (a,b) ->{
-            mytext.setText("the checkbox is on?" + b);
+        myedit.setText(model.editString);*/
+
+        model.isOn.observe(this,(selected) ->{
+            variableBinding.mycheckbox.setChecked(selected);
+            variableBinding.myswitch.setChecked(selected);
+            variableBinding.myradiobutton.setChecked(selected);
+            Toast.makeText(this,String.format("the buttons are now: %b",selected),Toast.LENGTH_LONG).show();
+
+
         });
-        myswitch.setOnCheckedChangeListener( (a,b) ->{
-            mytext.setText("the switch is on?" + b);
+       variableBinding.mycheckbox.setOnCheckedChangeListener( (a,b) ->{
+           model.isOn.postValue(b);
+
+        });
+       variableBinding.myswitch.setOnCheckedChangeListener( (a,b) ->{
+            model.isOn.postValue(b);
+        });
+       variableBinding.myradiobutton.setOnCheckedChangeListener( (a,b) ->{
+           model.isOn.postValue(b);
+       });
+       variableBinding.theimagebutton.setOnClickListener( (v) ->{
+           Toast.makeText(this,"These words",Toast.LENGTH_LONG).show();
+
+       });
+
+        variableBinding.mybutton.setOnClickListener(click -> {
+            model.editString.postValue(variableBinding.myedittext.getText().toString());
         });
 
-
-        mybutton.setOnClickListener( (v) ->{
-            model.text ="You clicked the button";
-            model.button ="Something new here";
-            mytext.setText(model.text);
-            mybutton.setText(model.button);
+        model.editString.observe(this, s ->{
+            variableBinding.mytextview.setText("Your edit text has " + s);
         });
-
-
-
-       /* variableBinding.mybutton.setOnClickListener(click -> {
-            model.editString.observe(this,s -> {
-                variableBinding.mytextview.setText("Your edit text has: "+ s);
-            });
-
-        });*/
     }
 }
-
-
-
-
-
 
 
 

@@ -9,32 +9,49 @@
 
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/mytextview"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
         android:text="@string/hello_message"
-        android:id="@+id/mytextview"/>
+        android:textSize="25dp" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/mybutton"
+        android:layout_width="174dp"
+        android:layout_height="77dp"
         android:layout_marginBottom="50dp"
-        android:text="@string/button_message"
-        android:id="@+id/mybutton"/>
+        android:text="@string/button_message" />
+
     <EditText
+        android:id="@+id/myedittext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_text"
-        android:id="@+id/myedittext"/>
+        android:hint="@string/hint_text" />
+
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Check this out"
+        android:text="Would you like to subscribe to this virus"
         android:id="@+id/mycheckbox"/>
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/myswitch"
-        android:text="I'm a switch"/>
+        android:text="Would you like to subscribe to this virus"/>
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/myradiobutton"
+        android:text="Would you like to subscribe to this virus"/>
 
+    <ImageButton
+        android:id="@+id/theimagebutton"
+        android:layout_width="242dp"
+        android:layout_height="151dp"
+        android:src="@drawable/ag_logo" />
 
+    <ImageView
+        android:layout_width="235dp"
+        android:layout_height="175dp"
+        android:src="@drawable/ag_logo" />
 </LinearLayout>
