@@ -1,16 +1,16 @@
 package algonquin.cst2335.Derron;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import algonquin.cst2335.Derron.databinding.ActivityChatRoomBinding;
 import algonquin.cst2335.Derron.databinding.ReceiveMessageBinding;
@@ -19,8 +19,8 @@ import algonquin.cst2335.Derron.databinding.SentMessageBinding;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.zip.Inflater;
 
-import data.ChatRoomViewModel;
 
 /**
  * Activity for displaying a chat room and handling user interactions.
