@@ -16,12 +16,10 @@
 
     <TextView
         android:id="@+id/message"
-        android:layout_width="0dp"
-        android:layout_height="23dp"
-        android:layout_marginEnd="49dp"
+        android:layout_width="65dp"
+        android:layout_height="34dp"
         android:text="Message"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/time"
@@ -29,6 +27,8 @@
         android:layout_height="wrap_content"
         android:text="Time"
         app:layout_constraintEnd_toStartOf="@+id/message"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
