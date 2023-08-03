@@ -1,37 +1,43 @@
 package algonquin.cst2335.Derron;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
-
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.google.android.material.snackbar.Snackbar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.lifecycle.ViewModelProvider;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.room.Room;
+
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.ArrayList;
+
+import algonquin.cst2335.Derron.R;
 import algonquin.cst2335.Derron.databinding.ActivityChatRoomBinding;
-import algonquin.cst2335.Derron.databinding.ReceiveMessageBinding;
 import algonquin.cst2335.Derron.databinding.SentMessageBinding;
-import algonquin.cst2335.Derron.ChatMessage;
-import algonquin.cst2335.Derron.ChatMessageDAO;
-import algonquin.cst2335.Derron.ChatRoomViewModel;
-import algonquin.cst2335.Derron.MessageDatabase;
-import algonquin.cst2335.Derron.MessageDetailsFragment;
+import algonquin.cst2335.Derron.databinding.ReceiveMessageBinding;
+
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 
 public class ChatRoom extends AppCompatActivity {
@@ -126,7 +132,7 @@ public class ChatRoom extends AppCompatActivity {
 
         chatmodel.selectedMessage.observe(this, (newMessageValue) ->{
             MessageDetailsFragment chatFragment = new MessageDetailsFragment(newMessageValue);
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, chatFragment).commit();
+            getSupportFragmentManager().beginTransaction().addToBackStack("").replace(R.id.fragmentLocation, chatFragment).commit();
 
 
 
